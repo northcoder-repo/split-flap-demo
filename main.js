@@ -12,14 +12,14 @@
 
 */
 
-const msgFontSize = '20px';
+const msgFontSize = '40px';
 
 /* gap between bottom and    */
 /* top halves of glyphs      */
 /* set to 'none' for no gap, */
 /* or a valid CSS value      */
 /* ('2px', '5%', etc.)       */
-const glyphSplitGap = '1px';
+const glyphSplitGap = '2px';
 
 // speed of transitions (in milliseconds):
 const flapPause = 60; // top half of glyph to bottom half
