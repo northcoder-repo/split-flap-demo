@@ -1,5 +1,7 @@
 # Split-Flap Demo
 
+[![split-flap display](images/split-flap-board.png)]
+
 See [split-flap display](https://en.wikipedia.org/wiki/Split-flap_display) for more information about split-flap message boards.
 
 This demo was inspired by the following examples:
