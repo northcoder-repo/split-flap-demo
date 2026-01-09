@@ -9,7 +9,7 @@ This demo was inspired by the following examples:
  - https://gist.github.com/veltman/f2b2a06d4ffa62f4d39d5ebac5ceeef0
  - https://github.com/paulcuth/departure-board
 
-In this case, the transition from one letter to another is faked by displaying the top half of the letter a few milliseconds before the bottom half of the letter.
+In my case, the transition from one letter to another is faked by displaying the top half of the letter a few milliseconds before the bottom half of the letter.
 
 The gap between the top half and bottom half of each letter doesn't work very well for smaller font sizes, but there are two approaches to choose from:
 
