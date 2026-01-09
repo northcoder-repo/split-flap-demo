@@ -19,3 +19,5 @@ The gap between the top half and bottom half of each letter doesn't work very we
 The JavaScript launches an array of Promises to handle transitions for each cell.
 
 Demo: https://jsfiddle.net/kmqe73zd/
+
+Further discussion: https://northcoder.com/post/another-splitflap-display-board/
