@@ -1,0 +1,86 @@
+:root {
+  /* these are overridden by our JS code */
+  --msg-font-size: 16px;
+  --glyph-split-gap: 2px;
+}
+
+body {
+  font-family: helvetica;
+}
+
+#display-container {
+  font-size: var(--msg-font-size);
+  display: none;
+  background-color: #121212;
+  width: fit-content;
+  border: solid rgba(90,90,90,0.7) 2px;
+  border-radius: 3px;
+}
+
+.display-line {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  width: fit-content;
+  gap: 5px;
+  padding: 3px;
+}
+
+.display-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid rgba(15,15,15,0.5) 1px;
+  box-shadow: inset  2px  2px 2px rgba(35,35,35,0.7),
+              inset -2px -2px 2px rgba(70,70,70,0.3);
+  position: relative;
+  background: #1c1c1c;
+  width: 1em;
+  height: 1.2em;
+}
+
+/* draws a horizontal line through 
+   the middle of each display cell,
+   as an alternative to using the
+   `.glyph-split-gap` class        
+.display-cell::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: black;
+  transform: translateY(-50%);
+  z-index: 0;
+}
+*/
+
+.glyph-top {
+  background: linear-gradient(
+    to bottom,
+    white 50%,
+    transparent 50%
+  );
+  background-clip: text;
+  color: transparent;
+  z-index: 10;
+}
+
+.glyph-bottom {
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    white 50%
+  );
+  background-clip: text;
+  color: transparent;
+  position: absolute;
+  z-index: 10;
+}
+
+/* see the JS code for how this is used */
+.glyph-split-gap {
+  top: var(--glyph-split-gap);
+}
