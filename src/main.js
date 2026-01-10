@@ -28,10 +28,6 @@ const cascade = 90; // speed of flow from one cell to next
 
 const maxMessageLength = 500;
 
-// show a gap between top and 
-// bottom halves of glyphs:
-const letterGap = true;
-
 let message = '';
 // any char in the message which is not in the `characters`
 // list should be replaced by a character which is in the 
