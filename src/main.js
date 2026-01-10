@@ -34,8 +34,8 @@ const letterGap = true;
 
 let message = '';
 // any char in the message which is not in the `characters`
-// list must be replaced by a character which is in the list,
-// otherwise the search for a match would never end.
+// list should be replaced by a character which is in the 
+// list:
 const replacementChar = '☒';
 
 // All the valid characters which can be displayed:
@@ -78,8 +78,7 @@ function createDisplayLine(lineDiv, charsPerLine) {
 function reformatMsg(lines, charsPerLine) {
   // fit the message to the display grid by
   // padding lines as needed; replace symbols 
-  // not in `characters` - otherwise the loop 
-  // would never end...
+  // not in `characters`:
   const paddedLines = lines.map(line => {
     return line.toUpperCase().padEnd(charsPerLine);
   });
@@ -161,8 +160,9 @@ const processCell = async (data) => {
   const chars = [...data.chars];
   let curGlyph = glyphTop.textContent; // currently displayed
 
-  // cycle through array of glyphs until we hit the glyph
-  // matching the glyph in the message.
+  // cycle through array of glyphs until (a) we hit the glyph
+  // matching the glyph in the message, or (b) we run out of
+  // characters to try:
   while(curGlyph !== tgtGlyph && chars.length != 0) {
     glyphTop.textContent = chars[0];
     // pause before changing bottom half of cell display:
