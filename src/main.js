@@ -26,7 +26,8 @@ const flapPause = 60; // top half of glyph to bottom half
 const glyphPause = 180; // pause between glyph sequence
 const cascade = 90; // speed of flow from one cell to next
 
-const maxMessageLength = 500;
+// see also the <textarea>:
+const maxMessageLength = 2000;
 
 let message = '';
 // any char in the message which is not in the `characters`
@@ -153,21 +154,21 @@ const processCell = async (data) => {
   const glyphTop = data.ele.querySelector(".glyph-top");
   const glyphBot = data.ele.querySelector(".glyph-bottom");
   const tgtGlyph = data.tgt; // from the message
-  const chars = [...data.chars];
   let curGlyph = glyphTop.textContent; // currently displayed
 
-  // cycle through array of glyphs until (a) we hit the glyph
+  // cycle through `characters` until (a) we hit the one
   // matching the glyph in the message, or (b) we run out of
   // characters to try:
-  while(curGlyph !== tgtGlyph && chars.length != 0) {
-    glyphTop.textContent = chars[0];
+  let charIdx = 0;
+  while(curGlyph !== tgtGlyph && charIdx < characters.length) {
+    glyphTop.textContent = characters[charIdx];
     // pause before changing bottom half of cell display:
     await new Promise(resolve => setTimeout(resolve, flapPause));
-    glyphBot.textContent = chars[0];
+    glyphBot.textContent = characters[charIdx];
     curGlyph = glyphTop.textContent;
     // pause before re-checking the cell against the message:
     await new Promise(resolve => setTimeout(resolve, glyphPause));
-    chars.shift(); // discard first letter in chars array
+    charIdx++; // discard first letter in chars array
   }
   return data.idx;
 };
@@ -182,8 +183,7 @@ function loadFuncArray() {
     paramsArray.push({
       idx: i, 
       ele: displayCells[i],
-      tgt: message[i],
-      chars: characters
+      tgt: message[i]
     });
   }
 }
